@@ -20,7 +20,7 @@ namespace MineSweeper_Console_Test
         }
 
         [TestMethod]
-        public void TestPlayerMove()
+        public void TestPlayerMoveRight()
         {
             var player = new Player(1, 10, 10);
             player.Move("right");
@@ -30,8 +30,33 @@ namespace MineSweeper_Console_Test
         }
 
         [TestMethod]
+        public void TestPlayerMoveLeftWhenLeftMost()
+        {
+            //can we handle moving left when already in column zero?
+            var player = new Player(1, 10, 10);
+            player.Move("left");
+            Assert.AreEqual(0, player.X);
+            Assert.AreEqual(0, player.Y);
+            Assert.AreEqual(0, player.MovesCount);
+        }
+
+        [TestMethod]
+        public void TestPlayerMoveDownWhenAtBottom()
+        {
+            //can we handle moving left when already in column zero?
+            var player = new Player(1, 2, 2);
+            player.Move("down");
+            player.Move("down");
+            player.Move("down");
+            Assert.AreEqual(0, player.X);
+            Assert.AreEqual(1, player.Y);
+            Assert.AreEqual(1, player.MovesCount);
+        }
+
+        [TestMethod]
         public void TestPlayerWin()
         {
+            //start with a small board
             var player = new Player(1, 3, 2);
             player.Move("right");
             player.Move("right");
@@ -49,6 +74,7 @@ namespace MineSweeper_Console_Test
             Assert.AreEqual(1, player.X);
             Assert.AreEqual(1, player.Y);
         }
+
         [TestMethod]
         public void TestPlayerStatusMsg()
         {

@@ -13,7 +13,6 @@ namespace MineSweeper_Console_Library
 
         //[Range(1, 10, ErrorMessage = "Width must be between 1 and 10")]
         public int MineCount { get; private set; }
-        //public int[,] BoardArray { get; private set; }
         public bool[,] MinePositions { get; set; }
 
         public Board(int width = 8, int height = 8, int mines = 8)
@@ -34,7 +33,6 @@ namespace MineSweeper_Console_Library
             Width = width;
             Height = height;
             MineCount = mines;
-            //BoardArray = new int[width, height];
             MinePositions = new bool[width, height];
             GenerateBoard();
         }

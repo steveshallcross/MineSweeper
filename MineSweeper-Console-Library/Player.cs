@@ -42,14 +42,26 @@
         {
             X += x;
             Y += y;
+            MovesCount++;
+
+            //Check for invalid moves, generously credit the move back to the player if so.
             if (X < 0)
+            {
                 X = 0;
+                MovesCount--;
+            }
             if (X >= MaxX)
                 Won = true;
-            if (Y < 0 )
+            if (Y < 0)
+            {
                 Y = 0;
+                MovesCount--;
+            }
             if (Y > MaxY)
+            {
                 Y = MaxY;
+                MovesCount--;
+            }
         }
         public void Move(string reference)
         {
@@ -68,7 +80,6 @@
                     Move(1, 0);
                     break;
             }
-            MovesCount++;
         }
     }
 }

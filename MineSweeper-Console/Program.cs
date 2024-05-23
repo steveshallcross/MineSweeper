@@ -12,7 +12,6 @@ namespace MineSweeper_Console
                 Console.WriteLine("MineSweeper!");
 
                 var board = new Board(8, 8, 5);
-                //board.GenerateBoard();
 
                 //Included for testing purposes
                 board.PrintBoard();
