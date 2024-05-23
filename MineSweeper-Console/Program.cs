@@ -14,7 +14,7 @@ namespace MineSweeper_Console
                 var board = new Board(8, 8, 5);
 
                 //Included for testing purposes
-                board.PrintBoard();
+                //board.PrintBoard();
 
                 var player1 = new Player(1, board.Width, board.Height);
                 Console.WriteLine(player1.PlayerStatus());
@@ -44,6 +44,9 @@ namespace MineSweeper_Console
                             break;
                         case ConsoleKey.RightArrow:
                             player1.Move("right");
+                            break;
+                        case ConsoleKey.P:
+                            board.PrintBoard(); //for evaluation purposes
                             break;
                         case ConsoleKey.Escape:
                             quit = true;
